@@ -47,7 +47,6 @@ has_one :purchase
 | phone_number    | string     | null: false                    |
 
 ### Association
-belongs_to :item
 belongs_to :purchase
 
 
