@@ -28,7 +28,7 @@ has_many :uer_purchases
 | delivery_charge | text       | null: false                    |
 | item_area       | text       | null: false                    |
 | delivery_days   | string     | null: false                    |
-| price           | string     | null: false                    |
+| price           | integer    | null: false                    |
 | user_id         | references | null: false, foreign_key: true |
 
 ### Association
