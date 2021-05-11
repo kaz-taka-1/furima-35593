@@ -11,9 +11,7 @@
 | lastname           | text   | null: false              |
 | firstname_kana     | text   | null: false              |
 | lastname_kana      | text   | null: false              |
-| birth_year         | string | null: false              |
-| birth_month        | string | null: false              |
-| birth_day          | string | null: false              |
+| birthday           | date   | null: false              |
 
 ### Association
 has_many :items
