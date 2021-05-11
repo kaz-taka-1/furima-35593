@@ -48,7 +48,7 @@ has_one :purchase
 
 ### Association
 belongs_to :item
-has_many :purchase_users
+belongs_to :purchase
 
 
 ##  purchases テーブル
@@ -60,4 +60,4 @@ has_many :purchase_users
 
 ### Association
 belongs_to :item
-belongs_to :purchase_user
+has_one :address
