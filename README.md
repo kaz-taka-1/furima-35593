@@ -45,6 +45,7 @@ has_one :purchase
 | street_number   | string     | null: false                    |
 | building_number | string     |                                |
 | phone_number    | string     | null: false                    |
+| purchase        | references | null: false, foreign_key: true |
 
 ### Association
 belongs_to :purchase
