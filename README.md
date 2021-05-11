@@ -59,5 +59,5 @@ has_many :purchase_users
 | item            | references | null: false, foreign_key: true |
 
 ### Association
-belongs_to :purchase
+belongs_to :item
 belongs_to :purchase_user
