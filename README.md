@@ -56,8 +56,8 @@ has_many :purchase_users
 
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
-| user_id         | references | null: false, foreign_key: true |
-| purchase_id     | references | null: false, foreign_key: true |
+| user            | references | null: false, foreign_key: true |
+| purchase        | references | null: false, foreign_key: true |
 
 ### Association
 belongs_to :purchase
