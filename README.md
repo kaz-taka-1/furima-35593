@@ -35,7 +35,7 @@ belongs_to :user
 has_one :purchase
 
 
-##  purchases テーブル
+##  addresses テーブル
 
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
@@ -51,7 +51,7 @@ belongs_to :item
 has_many :purchase_users
 
 
-##  purchase_users テーブル
+##  purchases テーブル
 
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
