@@ -4,9 +4,8 @@
 | Column             | Type   | Options                  |
 | ------------------ | ------ | ------------------------ |
 | email              | string | null: false, unique: true|
-| password           | string | null: false              |
 | encrypted_password | string | null: false              |
-| nickname           | string   | null: false              |
+| nickname           | string | null: false              |
 | firstname          | string | null: false              |
 | lastname           | string | null: false              |
 | firstname_kana     | string | null: false              |
