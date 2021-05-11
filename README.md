@@ -20,7 +20,7 @@ has_many :purchase_users
 ## items テーブル
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| item               | string     | null: false                    |
+| name               | string     | null: false                    |
 | text               | text       | null: false                    |
 | category_id        | integer    | null: false                    |
 | status_id          | integer    | null: false                    |
