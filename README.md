@@ -1,19 +1,19 @@
 # furima-35593のテーブル設計
 
 ## users テーブル
-| Column             | Type   | Options     |
-| ------------------ | ------ | ----------- |
-| email              | string | null: false |
-| password           | string | null: false |
-| encrypted_password | string | null: false |
-| nickname           | text   | null: false |
-| firstname          | text   | null: false |
-| lastname           | text   | null: false |
-| firstname_kana     | text   | null: false |
-| lastname_kana      | text   | null: false |
-| birth_year         | string | null: false |
-| birth_month        | string | null: false |
-| birth_day          | string | null: false |
+| Column             | Type   | Options                  |
+| ------------------ | ------ | ------------------------ |
+| email              | string | null: false, unique: true|
+| password           | string | null: false              |
+| encrypted_password | string | null: false              |
+| nickname           | text   | null: false              |
+| firstname          | text   | null: false              |
+| lastname           | text   | null: false              |
+| firstname_kana     | text   | null: false              |
+| lastname_kana      | text   | null: false              |
+| birth_year         | string | null: false              |
+| birth_month        | string | null: false              |
+| birth_day          | string | null: false              |
 
 ### Association
 has_many :items
