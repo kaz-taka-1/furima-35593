@@ -5,7 +5,7 @@
 | -------------- | ------ | ----------- |
 | email          | string | null: false |
 | password       | string | null: false |
-| nickname       | string | null: false |
+| nickname       | text   | null: false |
 | firstname      | text   | null: false |
 | lastname       | text   | null: false |
 | firstname_kana | text   | null: false |
@@ -16,6 +16,7 @@
 
 ### Association
 has_many :items
+has_many :uer_purchases
 
 
 ## items テーブル
@@ -30,37 +31,35 @@ has_many :items
 | delivery_days   | string     | null: false                    |
 | price           | string     | null: false                    |
 | user_id         | references | null: false, foreign_key: true |
-| card_id         | references | null: false, foreign_key: true |
 
 ### Association
 belongs_to :user
-belongs_to :card
+has_one :purchase
 
 
-## cards テーブル
-| Column        | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
-| card_number   | string     | null: false                    |
-| valid_year    | string     | null: false                    |
-| valid_month   | string     | null: false                    |
-| security_code | string     | null: false                    |
-
-### Association
-has_many :items
-has_one :address
-
-
-## addresses テーブル
+##  purchases テーブル
 
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
 | postal_code     | string     | null: false                    |
-| prefectures     | string     | null: false                    |
+| prefectures     | text       | null: false                    |
 | municipalities  | text       | null: false                    |
 | street_number   | text       | null: false                    |
-| building_number | text       | null: false                    |
+| building_number | text       |                                |
 | phone_number    | string     | null: false                    |
-| card_id         | references | null: false, foreign_key: true |
 
 ### Association
-belongs_to :card
+belongs_to :item
+has_many :user_purchases
+
+
+##  purchases テーブル
+
+| Column          | Type       | Options                        |
+| --------------- | ---------- | ------------------------------ |
+| user_id         | references | null: false, foreign_key: true |
+| purchase_id     | references | null: false, foreign_key: true |
+
+### Association
+belongs_to :purchase
+belongs_to :user_purchase
