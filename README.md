@@ -21,7 +21,7 @@ has_many :uer_purchases
 ## items テーブル
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
-| item            | text       | null: false                    |
+| item            | string     | null: false                    |
 | text            | text       | null: false                    |
 | category        | text       | null: false                    |
 | status          | text       | null: false                    |
