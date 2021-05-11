@@ -19,17 +19,17 @@ has_many :purchase_users
 
 
 ## items テーブル
-| Column          | Type       | Options                        |
-| --------------- | ---------- | ------------------------------ |
-| item            | string     | null: false                    |
-| text            | text       | null: false                    |
-| category        | text       | null: false                    |
-| status          | text       | null: false                    |
-| delivery_charge | text       | null: false                    |
-| item_area       | text       | null: false                    |
-| delivery_days   | string     | null: false                    |
-| price           | integer    | null: false                    |
-| user            | references | null: false, foreign_key: true |
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| item               | string     | null: false                    |
+| text               | text       | null: false                    |
+| category_id        | integer    | null: false                    |
+| status_id          | integer    | null: false                    |
+| delivery_charge_id | integer    | null: false                    |
+| item_area_id       | integer    | null: false                    |
+| delivery_days_id   | integer    | null: false                    |
+| price              | integer    | null: false                    |
+| user               | references | null: false, foreign_key: true |
 
 ### Association
 belongs_to :user
@@ -41,7 +41,7 @@ has_one :purchase
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
 | postal_code     | string     | null: false                    |
-| prefectures     | text       | null: false                    |
+| prefectures_id  | integer    | null: false                    |
 | municipalities  | text       | null: false                    |
 | street_number   | text       | null: false                    |
 | building_number | text       |                                |
