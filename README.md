@@ -6,11 +6,11 @@
 | email              | string | null: false, unique: true|
 | password           | string | null: false              |
 | encrypted_password | string | null: false              |
-| nickname           | text   | null: false              |
-| firstname          | text   | null: false              |
-| lastname           | text   | null: false              |
-| firstname_kana     | text   | null: false              |
-| lastname_kana      | text   | null: false              |
+| nickname           | string   | null: false              |
+| firstname          | string | null: false              |
+| lastname           | string | null: false              |
+| firstname_kana     | string | null: false              |
+| lastname_kana      | string | null: false              |
 | birthday           | date   | null: false              |
 
 ### Association
