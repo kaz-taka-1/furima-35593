@@ -41,9 +41,9 @@ has_one :purchase
 | --------------- | ---------- | ------------------------------ |
 | postal_code     | string     | null: false                    |
 | prefectures_id  | integer    | null: false                    |
-| municipalities  | text       | null: false                    |
-| street_number   | text       | null: false                    |
-| building_number | text       |                                |
+| municipalities  | string     | null: false                    |
+| street_number   | string     | null: false                    |
+| building_number | string     |                                |
 | phone_number    | string     | null: false                    |
 
 ### Association
