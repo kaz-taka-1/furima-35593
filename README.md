@@ -25,7 +25,7 @@ has_many :purchase_users
 | category_id        | integer    | null: false                    |
 | status_id          | integer    | null: false                    |
 | delivery_charge_id | integer    | null: false                    |
-| item_area_id       | integer    | null: false                    |
+| prefectures_id     | integer    | null: false                    |
 | delivery_days_id   | integer    | null: false                    |
 | price              | integer    | null: false                    |
 | user               | references | null: false, foreign_key: true |
