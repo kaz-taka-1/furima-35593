@@ -6,9 +6,9 @@ class User < ApplicationRecord
   with_options presence: true do
     validates :nickname
     with_options format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: 'is invalid. Input full-width characters.' } do
-      validates :firstname 
+      validates :firstname
       validates :lastname
-    end 
+    end
     with_options format: { with: /\A[ァ-ヶー]+\z/, message: 'is invalid. Input full-width katakana characters.' } do
       validates :firstname_kana
       validates :lastname_kana
