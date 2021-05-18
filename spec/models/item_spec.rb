@@ -6,7 +6,7 @@ RSpec.describe Item, type: :model do
   end
 
   context '登録できる場合' do
-    it '全ての項目が入力してあると出品できる'do
+    it '全ての項目が入力してあると登録できること'do
       expect(@item).to be_valid
     end
     it '販売価格は半角数字とき登録できること'do
@@ -60,11 +60,7 @@ RSpec.describe Item, type: :model do
       @item.valid?
       expect(@item.errors.full_messages).to include("Price is out of setting range.")
     end
-    it '販売価格は全角数字だと登録できない'do
-      @item.price ='５９０'
-      @item.valid?
-      expect(@item.errors.full_messages).to include("Price before type cast is invalid. Input half-width characters.")
-    end
+    
   end
 end
 

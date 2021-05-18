@@ -11,7 +11,7 @@ class Item < ApplicationRecord
       validates :delivery_days_id
       end
       validates :price,numericality: {only_integer: true, greater_than_or_equal_to:300,less_than_or_equal_to:9999999,message: "is out of setting range." }
-      validates :price_before_type_cast,format: {with: /\A[a-z0-9]+\z/,message: "is invalid. Input half-width characters."}
+      
   end
  
  
