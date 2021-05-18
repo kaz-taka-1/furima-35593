@@ -7,7 +7,7 @@ class Item < ApplicationRecord
     validates :delivery_charge_id
     validates :prefectures_id
     validates :delivery_days_id
-    validates :price, :in 300..9999999
+    validates_inclusion_of :price, in:300..9999999
     validates :image
   end
   belongs_to :user
