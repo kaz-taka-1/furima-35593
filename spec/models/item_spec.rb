@@ -31,7 +31,7 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Category can't be blank")
     end
     it 'カテゴリーの情報が0だと保存できないこと' do
-      @item.category_id = 
+      @item.category_id = 0
       @item.valid?
       expect(@item.errors.full_messages).to include('Category must be other than 0')
     end
@@ -41,7 +41,7 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Status can't be blank")
     end
     it '商品の状態についての情報が0だと保存できないこと' do
-      @item.status_id = 
+      @item.status_id = 0
       @item.valid?
       expect(@item.errors.full_messages).to include('Status must be other than 0')
     end
@@ -51,7 +51,7 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Delivery charge can't be blank")
     end
     it '配送料の負担についての情報が0だと保存できないこと' do
-      @item.delivery_charge_id = 
+      @item.delivery_charge_id = 0
       @item.valid?
       expect(@item.errors.full_messages).to include('Delivery charge must be other than 0')
     end
@@ -61,7 +61,7 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Prefectures can't be blank")
     end
     it '発送元の地域についての情報が0だと保存できないこと' do
-      @item.prefectures_id = 
+      @item.prefectures_id = 0
       @item.valid?
       expect(@item.errors.full_messages).to include('Prefectures must be other than 0')
     end
@@ -76,12 +76,12 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include('Price is out of setting range.')
     end
     it '販売価格は、¥300より安いと登録できないこと' do
-      @item.price = 
+      @item.price = 100
       @item.valid?
       expect(@item.errors.full_messages).to include('Price is out of setting range.')
     end
     it '販売価格は、¥9,999,999より高いと登録できないこと' do
-      @item.price = 
+      @item.price = 10000000
       @item.valid?
       expect(@item.errors.full_messages).to include('Price is out of setting range.')
     end
