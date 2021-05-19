@@ -21,14 +21,14 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Image can't be blank")
     end
     it '発送までの日数についての情報が空だと登録できないこと' do
-      @item.delivery_days_id = ''
+      @item.deliverydays_id = ''
       @item.valid?
-      expect(@item.errors.full_messages).to include("Delivery days can't be blank")
+      expect(@item.errors.full_messages).to include("Deliverydays can't be blank")
     end
     it '発送までの日数についての情報が0だと保存できないこと' do
-      @item.delivery_days_id = 0
+      @item.deliverydays_id = 0
       @item.valid?
-      expect(@item.errors.full_messages).to include('Delivery days must be other than 0')
+      expect(@item.errors.full_messages).to include('Deliverydays must be other than 0')
     end
     it '商品の説明が空だと登録できないこと' do
       @item.text = ''
@@ -56,14 +56,14 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include('Status must be other than 0')
     end
     it '配送料の負担についての情報が空だと登録できないこと' do
-      @item.delivery_charge_id = ''
+      @item.deliverycharge_id = ''
       @item.valid?
-      expect(@item.errors.full_messages).to include("Delivery charge can't be blank")
+      expect(@item.errors.full_messages).to include("Deliverycharge can't be blank")
     end
     it '配送料の負担についての情報が0だと保存できないこと' do
-      @item.delivery_charge_id = 0
+      @item.deliverycharge_id = 0
       @item.valid?
-      expect(@item.errors.full_messages).to include('Delivery charge must be other than 0')
+      expect(@item.errors.full_messages).to include('Deliverycharge must be other than 0')
     end
     it '発送元の地域についての情報が空だと登録できないこと' do
       @item.prefectures_id = ''
