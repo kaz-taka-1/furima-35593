@@ -6,9 +6,9 @@ class Item < ApplicationRecord
     with_options numericality: { other_than: 0 } do
       validates :category_id
       validates :status_id
-      validates :delivery_charge_id
+      validates :deliverycharge_id
       validates :prefectures_id
-      validates :delivery_days_id
+      validates :deliverydays_id
     end
     validates :price,
               numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999,
@@ -17,5 +17,11 @@ class Item < ApplicationRecord
 
   belongs_to :user
   # has_one :purchase
+  extend ActiveHash::Associations::ActiveRecordExtensions
   has_one_attached :image
+  belongs_to :category
+  belongs_to :status
+  belongs_to :deliverycharge
+  belongs_to :prefecture
+  belongs_to :deliverydays
 end

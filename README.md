@@ -24,9 +24,9 @@ has_many :purchases
 | text               | text       | null: false                    |
 | category_id        | integer    | null: false                    |
 | status_id          | integer    | null: false                    |
-| delivery_charge_id | integer    | null: false                    |
+| deliverycharge_id | integer    | null: false                    |
 | prefectures_id     | integer    | null: false                    |
-| delivery_days_id   | integer    | null: false                    |
+| deliverydays_id   | integer    | null: false                    |
 | price              | integer    | null: false                    |
 | user               | references | null: false, foreign_key: true |
 
