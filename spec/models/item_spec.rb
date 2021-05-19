@@ -20,6 +20,16 @@ RSpec.describe Item, type: :model do
       @item.valid?
       expect(@item.errors.full_messages).to include("Image can't be blank")
     end
+    it '発送までの日数についての情報が空だと登録できないこと' do
+      @item.delivery_days_id = ''
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Delivery days can't be blank")
+    end
+    it '発送までの日数についての情報が0だと保存できないこと' do
+      @item.delivery_days_id = 0
+      @item.valid?
+      expect(@item.errors.full_messages).to include('Delivery days must be other than 0')
+    end
     it '商品の説明が空だと登録できないこと' do
       @item.text = ''
       @item.valid?
