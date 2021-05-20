@@ -21,6 +21,17 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def edit
+    @item = Item.find(params[:id])
+    
+    if current_user.id != @item.user_id 
+      # unless Purchase.exists?(item_id:@item.id)
+        @item = Item.all
+        render :index
+      # end
+    end
+  end  
+
   private
 
   def item_params
