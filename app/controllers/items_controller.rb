@@ -24,8 +24,7 @@ class ItemsController < ApplicationController
   def edit
     if current_user.id != @item.user_id
       # unless Purchase.exists?(item_id:@item.id)
-      @items = Item.order('created_at DESC')
-      render :index
+      redirect_to edit_item(@item.id)
       # end
     end
   end
