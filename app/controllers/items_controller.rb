@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    
+
     if current_user.id != @item.user_id 
       # unless Purchase.exists?(item_id:@item.id)
         @item = Item.all
@@ -31,6 +31,15 @@ class ItemsController < ApplicationController
       # end
     end
   end  
+
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to item_path(@item.id)
+    else
+      render :edit
+    end
+  end
 
   private
 
