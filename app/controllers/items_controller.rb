@@ -26,10 +26,11 @@ class ItemsController < ApplicationController
 
     if current_user.id != @item.user_id 
       # unless Purchase.exists?(item_id:@item.id)
-        @item = Item.all
+        @items = Item.order('created_at DESC')
         render :index
       # end
     end
+
   end  
 
   def update
