@@ -24,14 +24,13 @@ class ItemsController < ApplicationController
   def edit
     @item = Item.find(params[:id])
 
-    if current_user.id != @item.user_id 
+    if current_user.id != @item.user_id
       # unless Purchase.exists?(item_id:@item.id)
-        @items = Item.order('created_at DESC')
-        render :index
+      @items = Item.order('created_at DESC')
+      render :index
       # end
     end
-
-  end  
+  end
 
   def update
     @item = Item.find(params[:id])
