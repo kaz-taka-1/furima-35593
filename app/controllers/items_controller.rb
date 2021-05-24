@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item, only: [:edit, :show, :update, :destroy]
+  before_action :set_gate, only: [:edit, :update, :destroy]
   def index
     @items = Item.order('created_at DESC')
   end
@@ -22,15 +23,10 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    if current_user.id != @item.user_id
-      unless Purchase.exists?(item_id:@item.id)
-      redirect_to items_path
-      end
-    end
   end
 
   def update
-    if @item.update(item_params) && current_user.id == @item.user_id
+    if @item.update(item_params)
       redirect_to item_path(@item.id)
     else
       render :edit
@@ -38,8 +34,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item.destroy if current_user.id == @item.user_id
-    redirect_to items_path
+    @item.destroy
   end
 
   private
@@ -51,5 +46,9 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def set_gate
+    redirect_to items_path if current_user.id != @item.user_id || Purchase.exists?(item_id: @item.id)
   end
 end
