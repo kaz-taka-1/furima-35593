@@ -8,6 +8,10 @@ RSpec.describe PurchaseAddress, type: :model do
     it '全ての項目が入力してあると登録できること' do
       expect(@purchase_address).to be_valid
     end
+    it '建物名が抜けていても登録できること' do
+      @purchase_address.building_number = ''
+      expect(@purchase_address).to be_valid
+    end
   end
   context '登録できない場合' do
     it '配送先の情報として、郵便番号が空だと登録できない' do
@@ -20,10 +24,10 @@ RSpec.describe PurchaseAddress, type: :model do
       @purchase_address.valid?
       expect(@purchase_address.errors.full_messages).to include('Postal code is invalid')
     end
-    it '郵便番号は１１桁以上の数値だと登録できないこと' do
-      @purchase_address.phone_number = '123456789012'
+    it '郵便番号は８桁以上だと以上の数値だと登録できないこと' do
+      @purchase_address.postal_code = '123-45678'
       @purchase_address.valid?
-      expect(@purchase_address.errors.full_messages).to include('Phone number is invalid')
+      expect(@purchase_address.errors.full_messages).to include('Postal code is invalid')
     end
     it '郵便番号は数値以外だと登録できないこと' do
       @purchase_address.postal_code = 'aaa-aaaa'
@@ -51,14 +55,34 @@ RSpec.describe PurchaseAddress, type: :model do
       expect(@purchase_address.errors.full_messages).to include("Street number can't be blank")
     end
     it '配送先の情報として、電話番号が空だと登録できない' do
-      @purchase_address.prefectures_id = ''
+      @purchase_address.phone_number = ''
       @purchase_address.valid?
-      expect(@purchase_address.errors.full_messages).to include("Prefectures can't be blank")
+      expect(@purchase_address.errors.full_messages).to include("Phone number can't be blank")
+    end
+    it '配送先の情報として、電話番号が12桁以上だと登録できない' do
+      @purchase_address.phone_number = '123456789012'
+      @purchase_address.valid?
+      expect(@purchase_address.errors.full_messages).to include("Phone number is invalid")
+    end
+    it '配送先の情報として、電話番号が英数混合では登録できないこと' do
+      @purchase_address.phone_number = 'abcd1234567'
+      @purchase_address.valid?
+      expect(@purchase_address.errors.full_messages).to include("Phone number is invalid")
     end
     it 'tokenが空では登録できないこと' do
       @purchase_address.token = nil
       @purchase_address.valid?
       expect(@purchase_address.errors.full_messages).to include("Token can't be blank")
+    end
+    it 'user_idが存在していなければ登録できないこと' do
+      @purchase_address.user_id = ''
+      @purchase_address.valid?
+      expect(@purchase_address.errors.full_messages).to include("User can't be blank")
+    end
+    it 'item_idが存在していなければ登録できないこと' do
+      @purchase_address.item_id = ''
+      @purchase_address.valid?
+      expect(@purchase_address.errors.full_messages).to include("Item can't be blank")
     end
   end
 end
