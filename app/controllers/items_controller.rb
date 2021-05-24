@@ -23,9 +23,9 @@ class ItemsController < ApplicationController
 
   def edit
     if current_user.id != @item.user_id
-      # unless Purchase.exists?(item_id:@item.id)
+      unless Purchase.exists?(item_id:@item.id)
       redirect_to items_path
-      # end
+      end
     end
   end
 
