@@ -3,7 +3,7 @@ class PurchasesController < ApplicationController
   before_action :set_gate
 
   def index
-      @purchase_address = PurchaseAddress.new
+    @purchase_address = PurchaseAddress.new
   end
 
   def create
@@ -21,11 +21,13 @@ class PurchasesController < ApplicationController
 
   def purchase_params
     @item = Item.find(params[:item_id])
-    params.require(:purchase_address).permit(:postal_code, :prefectures_id, :municipalities, :street_number, :building_number, :phone_number).merge(user_id: current_user.id,item_id: params[:item_id],token: params[:token],price: @item.price)
+    params.require(:purchase_address).permit(:postal_code, :prefectures_id, :municipalities, :street_number, :building_number, :phone_number).merge(
+      user_id: current_user.id, item_id: params[:item_id], token: params[:token], price: @item.price
+    )
   end
 
   def pry_item
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
       amount: purchase_params[:price],
       card: purchase_params[:token],
@@ -35,9 +37,6 @@ class PurchasesController < ApplicationController
 
   def set_gate
     @item = Item.find(params[:item_id])
-    if Purchase.exists?(item_id:@item.id) || @item.user_id == current_user.id
-      redirect_to root_path
-    end
+    redirect_to root_path if Purchase.exists?(item_id: @item.id) || @item.user_id == current_user.id
   end
-  
 end
