@@ -5,7 +5,7 @@ FactoryBot.define do
     municipalities { '八王子市' }
     street_number { '1-1' }
     building_number { '東京ハイツ' }
-    phone_number { 12345678901 }
+    phone_number { '12345678901' }
     token { 'tok_abcdefghijk00000000000000000' }
     user_id{Faker::Number}
     item_id{Faker::Number}
