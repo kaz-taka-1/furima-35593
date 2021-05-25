@@ -2,8 +2,14 @@ require 'rails_helper'
 
 RSpec.describe PurchaseAddress, type: :model do
   before do
+    @item = FactoryBot.create(:item)
+    @user = FactoryBot.create(:user)
     @purchase_address = FactoryBot.build(:purchase_address)
+    @purchase_address.user_id = @user.id
+    @purchase_address.item_id = @item.id
+    sleep 0.1
   end
+  
   context '登録できる場合' do
     it '全ての項目が入力してあると登録できること' do
       expect(@purchase_address).to be_valid
