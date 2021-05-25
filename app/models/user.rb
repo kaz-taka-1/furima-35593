@@ -18,5 +18,5 @@ class User < ApplicationRecord
     validates_format_of :password, with: PASSWORD_REGEX, message: 'is invalid. Input half-width characters.'
   end
   has_many :items
-  # has_many :purchases
+  has_many :purchases
 end
