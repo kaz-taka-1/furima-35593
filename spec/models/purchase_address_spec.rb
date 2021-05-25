@@ -19,6 +19,7 @@ RSpec.describe PurchaseAddress, type: :model do
       expect(@purchase_address).to be_valid
     end
   end
+
   context '登録できない場合' do
     it '配送先の情報として、郵便番号が空だと登録できない' do
       @purchase_address.postal_code = ''
@@ -91,4 +92,5 @@ RSpec.describe PurchaseAddress, type: :model do
       expect(@purchase_address.errors.full_messages).to include("Item can't be blank")
     end
   end
+  
 end
